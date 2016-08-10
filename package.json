@@ -4,7 +4,7 @@
   "description": "",
   "engines": {
     "node": "6.2.2"
-    },
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,6 +23,7 @@
   "dependencies": {
     "aws-sdk": "^2.4.14",
     "body-parser": "^1.15.2",
+    "cors": "^2.7.1",
     "es6-promise": "^3.2.1",
     "express": "^4.14.0",
     "isomorphic-fetch": "^2.2.1",
