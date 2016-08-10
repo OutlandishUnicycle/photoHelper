@@ -3,10 +3,10 @@ require('isomorphic-fetch');
 // var aws = require('../../secrets').aws;
 var AWS = require('aws-sdk');
 var s3 = new AWS.S3(); 
-aws = aws || {};
-aws.key = aws.key || process.env.KEY;
-aws.secret = aws.secret || process.env.SECRET;
-AWS.config.update({region: 'us-west-1', accessKeyId: aws.key, secretAccessKey: aws.secret });
+// var keys = aws || {};
+// aws.key = aws.key || process.env.KEY;
+// aws.secret = aws.secret || process.env.KEY;
+AWS.config.update({region: 'us-west-1', accessKeyId: process.env.KEY, secretAccessKey: process.env.KEY });
 
 var s3bucket = new AWS.S3({params: {Bucket: 'discollect'}});
 
