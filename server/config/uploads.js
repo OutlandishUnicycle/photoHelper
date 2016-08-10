@@ -2,8 +2,10 @@ require('es6-promise').polyfill(); // only need if fetch is brought back to be d
 require('isomorphic-fetch');
 var aws = require('../../secrets').aws;
 var AWS = require('aws-sdk');
-
 var s3 = new AWS.S3(); 
+aws = aws || {};
+aws.key = aws.key || KEY;
+aws.secret = aws.secret || SECRET;
 AWS.config.update({region: 'us-west-1', accessKeyId: aws.key, secretAccessKey: aws.secret });
 
 var s3bucket = new AWS.S3({params: {Bucket: 'discollect'}});
