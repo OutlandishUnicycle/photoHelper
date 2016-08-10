@@ -6,7 +6,7 @@ var s3 = new AWS.S3();
 // var keys = aws || {};
 // aws.key = aws.key || process.env.KEY;
 // aws.secret = aws.secret || process.env.KEY;
-AWS.config.update({region: 'us-west-1', accessKeyId: process.env.KEY, secretAccessKey: process.env.KEY });
+AWS.config.update({region: 'us-west-1', accessKeyId: process.env.KEY, secretAccessKey: process.env.SECRET });
 
 var s3bucket = new AWS.S3({params: {Bucket: 'discollect'}});
 
