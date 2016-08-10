@@ -14,11 +14,12 @@ module.exports = {
 
   createNewListing: function(req, res) {
     console.log(process.env.KEY, process.env.SECRET);
-    var name = req.body.title.replace(/[^a-zA-Z ]/g, ""); 
+    var name = req.body.title.replace(/[^a-zA-Z ]/g, "") + req.body.giverId; 
     console.log(name);
     var buf = new Buffer(req.body.picReference.replace(/^data:image\/\w+;base64,/, ""),'base64');
+
     var params = {
-      Key: name + req.body.giverId, 
+      Key: name, 
       Body: buf, 
       ACL: 'public-read', 
       ContentEncoding: 'base64',
@@ -30,7 +31,7 @@ module.exports = {
         res.send(301);
       } else {
         console.log("Successfully uploaded data to myBucket/myKey");
-        res.send()
+        res.send('https://s3-us-west-1.amazonaws.com/discollect/' + name);
       }
     });
   }
