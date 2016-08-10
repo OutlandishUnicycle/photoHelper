@@ -31,7 +31,7 @@ module.exports = {
         res.send(301);
       } else {
         console.log("Successfully uploaded data to myBucket/myKey");
-        res.send('https://s3-us-west-1.amazonaws.com/discollect/' + name);
+        res.json('https://s3-us-west-1.amazonaws.com/discollect/' + name);
       }
     });
   }
