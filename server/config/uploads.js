@@ -13,6 +13,7 @@ var s3bucket = new AWS.S3({params: {Bucket: 'discollect'}});
 module.exports = {
 
   createNewListing: function(req, res) {
+    console.log(process.env.KEY, process.env.SECRET);
     var name = req.body.title.replace(/[^a-zA-Z ]/g, ""); 
     console.log(name);
     var buf = new Buffer(req.body.picReference.replace(/^data:image\/\w+;base64,/, ""),'base64');
