@@ -14,7 +14,7 @@ module.exports = {
 
   createNewListing: function(req, res) {
     var name;
-    if (res.body.profile) {
+    if (req.body.profile) {
       name = req.body.giverId + 'profile'; 
     } else {
       name  = req.body.title.replace(/[^a-zA-Z]/g, "") + req.body.giverId;
