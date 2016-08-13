@@ -14,7 +14,10 @@ module.exports = {
 
   createNewListing: function(req, res) {
     console.log(process.env.KEY, process.env.SECRET);
-    var name = req.body.title.replace(/[^a-zA-Z]/g, "") + req.body.giverId; 
+    var name = req.body.title.replace(/[^a-zA-Z]/g, "") + req.body.giverId;
+    if (res.body.profile) {
+      name = name + 'profile'; 
+    } 
     console.log(name);
     var buf = new Buffer(req.body.picReference.replace(/^data:image\/\w+;base64,/, ""),'base64');
 
@@ -34,5 +37,6 @@ module.exports = {
         res.json('https://s3-us-west-1.amazonaws.com/discollect/' + name);
       }
     });
-  }
+  }, 
+
 };
