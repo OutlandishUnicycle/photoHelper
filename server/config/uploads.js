@@ -14,6 +14,7 @@ module.exports = {
 
   createNewListing: function(req, res) {
     var name;
+    console.log(req.body);
     if (req.body.profile) {
       name = req.body.giverId + 'profile'; 
     } else {
