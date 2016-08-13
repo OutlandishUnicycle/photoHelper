@@ -13,11 +13,12 @@ var s3bucket = new AWS.S3({params: {Bucket: 'discollect'}});
 module.exports = {
 
   createNewListing: function(req, res) {
-    console.log(process.env.KEY, process.env.SECRET);
-    var name = req.body.title.replace(/[^a-zA-Z]/g, "") + req.body.giverId;
+    var name;
     if (res.body.profile) {
-      name = name + 'profile'; 
-    } 
+      name = req.body.giverId + 'profile'; 
+    } else {
+      name  = req.body.title.replace(/[^a-zA-Z]/g, "") + req.body.giverId;
+    }
     console.log(name);
     var buf = new Buffer(req.body.picReference.replace(/^data:image\/\w+;base64,/, ""),'base64');
 
